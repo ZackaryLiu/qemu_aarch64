@@ -1,0 +1,15 @@
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+
+mdev -s
+
+if [ -e /mnt/init.sh ];
+then
+	./mnt/init.sh
+else
+	echo "Not find init.sh"
+fi
+
+ifconfig eth0 10.1.1.2 up
+
+echo -e "\nHello zackary, welcome to use this device."
